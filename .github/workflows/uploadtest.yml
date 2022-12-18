@@ -2,7 +2,7 @@ name: Image Release RPI
 
 on:
   push:
-      branches: [ upload ]
+    branches: [ master, "2.0","upload" ]
     paths:
       - 'last.release'
 
