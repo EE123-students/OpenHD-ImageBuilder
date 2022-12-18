@@ -36,7 +36,7 @@ jobs:
     - name: Pack image for ${{ matrix.TARGET }} ${{ matrix.TESTING }}
       uses: 'actions/upload-artifact@v2'
       with:
-        name: "${{ env.artifact_name }}"
+        name: tester
         path: |
           *.img
           if-no-files-found: error
@@ -50,7 +50,7 @@ jobs:
 
     - uses: actions/download-artifact@v3
       with:
-        name: "${{ env.artifact_name }}"
+        name: tester
     
     - name: compress
       run: |
