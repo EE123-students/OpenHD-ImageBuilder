@@ -70,6 +70,7 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         key: ${{ secrets.KEY }}
         insecure_password: ${{ secrets.PASSWORD }}
+        insecure_ignore_fingerprint: true
         source: OpenHD-OS-Images/${{ env.NAME }}
         target: OpenHD-OS-Images/${{ env.NAME }}
 
