@@ -30,8 +30,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: update
       run: sudo apt-get update
-    - name: upgrade
-      run: touch ${{ env.artifact_name }}
+    - name: touch
+      run: touch test.img
    
     - name: Pack image for ${{ matrix.TARGET }} ${{ matrix.TESTING }}
       uses: 'actions/upload-artifact@v2'
