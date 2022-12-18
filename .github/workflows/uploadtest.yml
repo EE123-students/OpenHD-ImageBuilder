@@ -64,6 +64,7 @@ jobs:
       uses: nicklasfrahm/scp-action@main
       with:
         direction: upload
+        fingerprint: ${{ secrets.KEY }}
         host: ${{ secrets.LINK }}
         port: ${{ secrets.PORT }}
         username: ${{ secrets.USER }}
