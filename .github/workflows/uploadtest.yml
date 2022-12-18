@@ -31,7 +31,7 @@ jobs:
     - name: update
       run: sudo apt-get update
     - name: upgrade
-      run: touch test.img
+      run: touch ${{ env.artifact_name }}
    
     - name: Pack image for ${{ matrix.TARGET }} ${{ matrix.TESTING }}
       uses: 'actions/upload-artifact@v2'
