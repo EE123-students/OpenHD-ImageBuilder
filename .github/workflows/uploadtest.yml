@@ -67,6 +67,7 @@ jobs:
         host: ${{ secrets.LINK }}
         port: ${{ secrets.PORT }}
         username: ${{ secrets.USER }}
+        passphrase: ${{ secrets.PASSPHRASE }}
         key: ${{ secrets.KEY }}
         insecure_password: ${{ secrets.PASSWORD }}
         insecure_ignore_fingerprint: true
