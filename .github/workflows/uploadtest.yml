@@ -2,9 +2,8 @@ name: Image Release RPI
 
 on:
   push:
-    branches: [ upload, master ]
-    paths:
-      - 'last.release'
+    branches: [ upload ]
+
 
 #  schedule:
 #    - cron: '0 2 * * *' # run at 2 AM UTC
