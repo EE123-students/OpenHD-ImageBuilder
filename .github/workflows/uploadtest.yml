@@ -54,12 +54,8 @@ jobs:
     
     - name: compress
       run: |
-        ls -a
-        cd OpenHD*
         touch image.xz 
-        ls -a
-        mv * ../
-        ls -a
+
     - name: debug
       run: |
         echo "${{ env.NAME }}"    
