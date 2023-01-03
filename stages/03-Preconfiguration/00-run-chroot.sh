@@ -137,18 +137,21 @@ if [[ "${OS}" == "ubuntu-x86" ]] ; then
        #systemctl enable initial-setup.service
        #echo "Created initial setup service"
 fi
-#this service updates runlevel changes. Set desired runlevel prior to this being disabled
-if [[ "${OS}" != "ubuntu-x86" ]]; then
-sudo systemctl disable systemd-update-utmp.service
-fi
 
 
 #change hostname
-CURRENT_HOSTNAME=`sudo cat /etc/hostname | sudo tr -d " \t\n\r"`
-NEW_HOSTNAME="openhd"
+
+    CURRENT_HOSTNAME=`sudo cat /etc/hostname | sudo tr -d " \t\n\r"`
+    NEW_HOSTNAME="openhd"
 if [ $? -eq 0 ]; then
-  sudo sh -c "echo '$NEW_HOSTNAME' > /etc/hostname"
-  sudo sed -i "s/127.0.1.1.*$CURRENT_HOSTNAME/127.0.1.1\t$NEW_HOSTNAME/g" /etc/hosts
+    sudo sh -c "echo '$NEW_HOSTNAME' > /etc/hostname"
+    sudo sed -i "s/127.0.1.1.*$CURRENT_HOSTNAME/127.0.1.1\t$NEW_HOSTNAME/g" /etc/hosts
+fi
+
+if [[ "${OS}" != "ubuntu-x86" ]] ; then
+    sudo systemctl disable systemd-update-utmp.service
+#this service updates runlevel changes. Set desired runlevel prior to this being disabled
+
 fi
 
 if [[ "${HAVE_CONF_PART}" == "false" ]] && [[ "${HAVE_BOOT_PART}" == "true" ]]; then
