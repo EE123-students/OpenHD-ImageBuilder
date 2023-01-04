@@ -32,7 +32,7 @@
          sudo apt autoremove -y
          sudo apt autoclean -y
          sudo apt remove linux-headers-5.15.0-53* linux-image-5.15.0-53-generic linux-modules-extra-5.15.0-53-generic 
-        
+         echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections 
          sudo apt update
          sudo apt upgrade
          sudo apt install -y git curl
@@ -50,8 +50,9 @@
      |   sudo -E bash
  fi
    
- if [[ "${OS}" == "ubuntu" ]]; then
+ if [[ "${OS}" == "ubuntu-jetson" ]]; then
          echo "OS is ubuntu"
+         echo "we're building for jetson nano"
          #The version we use as Base has messed up sources (by nvidia), we're correcting this now
           rm /etc/apt/sources.list.d/nvidia-l4t-apt-source.list || true
          echo "deb https://repo.download.nvidia.com/jetson/common r32.6 main" > /etc/apt/sources.list.d/nvidia-l4t-apt-source2.list

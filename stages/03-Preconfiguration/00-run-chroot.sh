@@ -75,13 +75,13 @@ sudo systemctl mask plymouth-start.service
 sudo systemctl mask plymouth-read-write.service
 sudo systemctl mask plymouth-quit-wait.service
 sudo systemctl mask plymouth-quit.service
-if [[ "${OS}" != "ubuntu" ]] || [[ "${OS}" != "ubuntu-x86" ]]; then
+if [[ "${OS}" != "ubuntu-jetson" ]] || [[ "${OS}" != "ubuntu-x86" ]]; then
     echo "OS is NOT ubuntu..disabling journald flush"
     sudo systemctl disable systemd-journal-flush.service
 
 fi
 
-if [[ "${OS}" == "ubuntu" ]]; then
+if [[ "${OS}" == "ubuntu-jetson" ]]; then
        mkdir -p /boot/openhd/
        mkdir -p /etc/systemd/system/getty@tty1.service.d
        touch /boot/openhd/jetson.txt
