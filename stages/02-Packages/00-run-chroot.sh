@@ -26,7 +26,7 @@
      PLATFORM_PACKAGES="open-hd-web-ui openhd-linux-pi openhd-linux-pi-headers libsdl2-dev libspdlog-dev libcamera-openhd libcamera-apps-openhd libavcodec-dev libavformat-dev mavsdk gst-plugins-good openhd-qt openhd qopenhd libsodium-dev libpcap-dev git nano openssh-server libboost-filesystem1.74-dev meson"
  fi
 
- if [[ "${OS}" == "ubuntu-x86" ]] ; then
+ if [[ "${OS}" == "x86-ubuntu" ]] ; then
          echo "OS is ubuntu, we're building for x86"
          sudo apt clean -y
          sudo apt autoremove -y
@@ -88,7 +88,7 @@
  #add dependencies for our cloudsmith repository install-scripts
  apt install -y apt-transport-https curl apt-utils
  #We use different repositories for regular and testing branches. Ubuntu has not enough space to clone and build everything, the user must do this on himself if he wants that (needs at least 20gb space)
- if [[ "${TESTING}" == "testing" ]] && [[ "${OS}" != "ubuntu-x86" ]]; then
+ if [[ "${TESTING}" == "testing" ]] && [[ "${OS}" != "x86-ubuntu" ]]; then
      curl -1sLf \
      'https://dl.cloudsmith.io/public/openhd/openhd-2-2-evo/setup.deb.sh' \
      | sudo -E bash
