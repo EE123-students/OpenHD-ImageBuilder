@@ -119,6 +119,7 @@ if [[ "${OS}" == "ubuntu-x86" ]] ; then
        sudo apt clean -y
        sudo apt autoremove -y
        sudo apt autoclean -y
+       sudo apt remove linux-headers-5.15.0-53* linux-image-5.15.0-53-generic linux-modules-extra-5.15.0-53-generic 
        df -h
 
     #    sudo apt install mono-runtime libmono-system-windows-forms4.0-cil libmono-system-core4.0-cil libmono-system-management4.0-cil libmono-system-xml-linq4.0-cil
