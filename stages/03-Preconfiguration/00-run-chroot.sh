@@ -114,28 +114,19 @@ if [[ "${OS}" == "ubuntu-x86" ]] ; then
        gio set /home/openhd/Desktop/QOpenHD.desktop metadata::trusted true
        echo "openhd ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/openhd
 
-       #install QGroundcontrol
-       sudo apt install libfuse2 -y
-       sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
-       cd /opt
-       git clone --recursive https://github.com/mavlink/qgroundcontrol.git
-       cd qgroundcontrol
-       git submodule update --recursive
-       sudo apt-get install speech-dispatcher libudev-dev libsdl2-dev patchelf build-essential curl
-       mkdir build
-       cd build
-       qmake ../
-       make -j2
-       make install
-      
-      
-      
-       sudo apt install mono-runtime libmono-system-windows-forms4.0-cil libmono-system-core4.0-cil libmono-system-management4.0-cil libmono-system-xml-linq4.0-cil
-       sudo apt install mono-complete
-       wget https://firmware.ardupilot.org/Tools/MissionPlanner/MissionPlanner-latest.zip
-       unzip MissionPlanner-latest.zip
-       wget https://github.com/iNavFlight/inav-configurator/releases/download/6.0.0-FP2/INAV-Configurator_linux64_6.0.0-FP2.tar.gz
-       tar -zxvf INAV-Configurator_linux64_6.0.0-FP2.tar.gz
+       #Cleanup:
+       df -h
+       sudo apt clean -y
+       sudo apt autoremove -y
+       sudo apt autoclean -y
+       df -h
+
+    #    sudo apt install mono-runtime libmono-system-windows-forms4.0-cil libmono-system-core4.0-cil libmono-system-management4.0-cil libmono-system-xml-linq4.0-cil
+    #    sudo apt install mono-complete
+    #    wget https://firmware.ardupilot.org/Tools/MissionPlanner/MissionPlanner-latest.zip
+    #    unzip MissionPlanner-latest.zip
+    #    wget https://github.com/iNavFlight/inav-configurator/releases/download/6.0.0-FP2/INAV-Configurator_linux64_6.0.0-FP2.tar.gz
+    #    tar -zxvf INAV-Configurator_linux64_6.0.0-FP2.tar.gz
            
        #cp -rf initial-setup.sh /opt/X86/
        #cp -rf initial-setup.service /etc/systemd/system/
